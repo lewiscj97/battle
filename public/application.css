@@ -1,0 +1,38 @@
+h1 {
+  text-align: center;
+  padding: 20 0 10;
+}
+
+h1.smaller_heading {
+  font-size: 25;
+}
+
+h2 {
+  text-align: center;
+  padding: 10px;
+}
+
+form {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+body {
+  background-color: LightSkyBlue;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+label {
+  padding: 5;
+}
+
+input {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
