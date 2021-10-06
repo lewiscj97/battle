@@ -46,4 +46,11 @@ describe Game do
       expect(subject.game_ended?).to eq true
     end
   end
+
+  describe "#winner" do
+    it "should return the correct winner" do
+      10.times { subject.attack(player1) }
+      expect(subject.winner).to eq(player2)      
+    end
+  end
 end

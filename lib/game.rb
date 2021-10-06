@@ -7,6 +7,7 @@ class Game
     @player1 = player1
     @player2 = player2
     @player1_turn = true
+    @winner = nil
   end
 
   def attack(player)
@@ -20,6 +21,10 @@ class Game
 
   def game_ended?
     dead?(@player1) || dead?(@player2) 
+  end
+
+  def winner
+    dead?(@player1) ? @player2 : @player1
   end
 
   private 

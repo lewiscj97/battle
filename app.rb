@@ -34,4 +34,9 @@ class Battle < Sinatra::Base
     redirect to('/result') if $game.game_ended?
     erb(:attack)
   end
+
+  get '/result' do
+    @winner = $game.winner.name
+    erb(:result)
+  end
 end

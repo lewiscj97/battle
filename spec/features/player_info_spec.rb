@@ -43,3 +43,19 @@ feature 'attacking' do
     expect(page).to have_content 'bar attacked foo!'
   end  
 end
+
+feature 'winning' do
+  scenario 'The game ends when a player hits 0hp and displays result' do
+    sign_in_and_play
+
+    18.times do
+      click_button 'Attack'
+      click_button 'Next turn'
+    end
+
+    click_button 'Attack'
+
+    expect(page).to have_content 'foo wins!'
+  end
+
+end
