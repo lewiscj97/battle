@@ -7,9 +7,12 @@ describe Game do
 
   describe "#initialize" do
     it 'is passed two players' do
-      game = Game.new(player1, player2)
-      expect(game.player1).to eq player1
-      expect(game.player2).to eq player2
+      expect(subject.player1).to eq player1
+      expect(subject.player2).to eq player2
+    end
+
+    it 'should be player 1\'s turn' do
+      expect(subject.player1_turn?).to eq true
     end
   end
   
@@ -22,6 +25,12 @@ describe Game do
     it 'should decrement player hp by 10 when attacked' do
       5.times { subject.attack(player1) }
       expect(player1.hp).to eq 50
+    end
+  end
+
+  describe 'player1_turn?' do
+    it 'should return player1 turn boolean' do
+      expect(subject.player1_turn?).to eq true
     end
   end
 end
