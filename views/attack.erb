@@ -1,1 +1,9 @@
+<% if $game.player1_turn? %>
+<p><%=@player2.name%> attacked <%=@player1.name%>!</p>
+<% else %>
 <p><%=@player1.name%> attacked <%=@player2.name%>!</p>
+<% end %>
+
+<form action='/play' >
+  <input value="Next turn" type=submit>
+</form>
