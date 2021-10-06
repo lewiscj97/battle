@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require './lib/player'
+require 'game'
 
 class Battle < Sinatra::Base
   configure :development do
@@ -14,8 +15,8 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    $player1 = Player.new(params[:player1]).name
-    $player2 = Player.new(params[:player2]).name
+    $player1 = Player.new(params[:player1])
+    $player2 = Player.new(params[:player2])
     redirect to('/play')
   end
 
