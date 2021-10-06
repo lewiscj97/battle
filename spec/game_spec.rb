@@ -3,10 +3,13 @@ require 'game'
 describe Game do
   let(:player1) { Player.new('Foo') }
   let(:player2) { Player.new('Bar') }
+  let(:subject) { Game.new(player1, player2) }
 
   describe "#initialize" do
     it 'is passed two players' do
-      game = Game.new(player1, player2)  
+      game = Game.new(player1, player2)
+      expect(game.player1).to eq player1
+      expect(game.player2).to eq player2
     end
   end
   
