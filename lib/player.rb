@@ -7,4 +7,8 @@ class Player
     @name = name
     @hp = hp
   end
+
+  def receive_damage
+    @hp -= 10
+  end
 end

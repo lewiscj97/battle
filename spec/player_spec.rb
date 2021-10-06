@@ -11,4 +11,21 @@ describe Player do
       expect(described_class.new('foo').hp).to eq 100 
     end
   end
+
+  describe "#receive_damage" do
+    before(:each) do
+      @test_player = Player.new('foo')
+    end
+    it 'should decrement player hp by 10 when attacked' do
+      expect{
+        @test_player.receive_damage 
+      }.to change { @test_player.hp }.from(100).to(90)      
+    end
+
+    it 'should decrement player hp by 50 when attacked x5' do
+      expect{
+        5.times { @test_player.receive_damage }
+      }.to change { @test_player.hp }.from(100).to(50)
+    end
+  end
 end
