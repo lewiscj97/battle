@@ -31,6 +31,7 @@ class Battle < Sinatra::Base
     @player1 = $game.player1
     @player2 = $game.player2
     $game.player1_turn? ? $game.attack(@player2) : $game.attack(@player1)
+    redirect to('/result') if $game.game_ended?
     erb(:attack)
   end
 end

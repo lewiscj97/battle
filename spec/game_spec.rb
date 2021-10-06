@@ -34,10 +34,16 @@ describe Game do
     end
   end
 
-  describe 'player1_turn?' do
+  describe '#player1_turn?' do
     it 'should return player1 turn boolean' do
       expect(subject.player1_turn?).to eq true
     end
   end
 
+  describe '#game_ended?' do
+    it 'should return true if game has ended' do
+      10.times { subject.attack(player1) }
+      expect(subject.game_ended?).to eq true
+    end
+  end
 end

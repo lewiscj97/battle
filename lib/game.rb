@@ -18,9 +18,17 @@ class Game
     @player1_turn
   end
 
+  def game_ended?
+    dead?(@player1) || dead?(@player2) 
+  end
+
   private 
   def switch_turn
     @player1_turn = !@player1_turn
+  end
+
+  def dead?(player)
+    player.hp <= 0
   end
 
 end
