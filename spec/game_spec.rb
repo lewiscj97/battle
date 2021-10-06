@@ -26,6 +26,12 @@ describe Game do
       5.times { subject.attack(player1) }
       expect(player1.hp).to eq 50
     end
+
+    it 'should switch to player 2 turn' do
+      expect { subject.attack(player1) }.to change { 
+        subject.player1_turn? 
+      }.from(true).to(false)
+    end
   end
 
   describe 'player1_turn?' do
@@ -33,4 +39,5 @@ describe Game do
       expect(subject.player1_turn?).to eq true
     end
   end
+
 end

@@ -11,10 +11,16 @@ class Game
 
   def attack(player)
     player.receive_damage
+    switch_turn
   end
 
   def player1_turn?
     @player1_turn
+  end
+
+  private 
+  def switch_turn
+    @player1_turn = !@player1_turn
   end
 
 end
