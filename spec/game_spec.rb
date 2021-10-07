@@ -7,6 +7,11 @@ describe Game do
   let(:player2) { Player.new('Bar') }
   let(:subject) { Game.new(player1, player2) }
 
+  before(:each) do
+    allow(player1).to receive(:rand).with(1..10) { 10 }
+    allow(player2).to receive(:rand).with(1..10) { 10 }
+  end
+
   describe '#initialize' do
     it 'is passed two players' do
       expect(subject.player1).to eq player1

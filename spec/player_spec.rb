@@ -16,11 +16,10 @@ describe Player do
   describe '#receive_damage' do
     before(:each) do
       @test_player = Player.new('foo')
+      allow(@test_player).to receive(:rand).with(1..10) { 10 }
     end
     it 'should decrement player hp by 10 when attacked' do
-      expect do
-        @test_player.receive_damage
-      end.to change { @test_player.hp }.from(100).to(90)
+      expect{ @test_player.receive_damage }.to change{@test_player.hp}.by -10
     end
 
     it 'should decrement player hp by 50 when attacked x5' do

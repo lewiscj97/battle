@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+
+
+
 feature 'Player Info' do
   scenario 'Players enter their names, names are displayed' do
     sign_in_and_play
@@ -29,6 +32,10 @@ feature 'Player Info' do
 end
 
 feature 'attacking' do
+  before(:each) do
+    allow_any_instance_of(Player).to receive(:rand).with(1..10) { 10 }
+  end
+
   scenario 'Player 2 HP is updated after being attacked' do
     sign_in_and_play
     click_button 'Attack'
@@ -46,6 +53,9 @@ feature 'attacking' do
 end
 
 feature 'winning' do
+  before(:each) do
+    allow_any_instance_of(Player).to receive(:rand).with(1..10) { 10 }
+  end
   scenario 'The game ends when a player hits 0hp and displays result' do
     sign_in_and_play
 
