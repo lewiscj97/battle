@@ -12,8 +12,8 @@ class Game
     @winner = nil
   end
 
-  def self.create(player_1, player_2)
-    @game = Game.new(player_1, player_2)
+  def self.create(player1, player2)
+    @game = Game.new(player1, player2)
   end
 
   def self.instance

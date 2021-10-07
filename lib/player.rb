@@ -4,9 +4,9 @@ class Player
   attr_reader :name
   attr_accessor :hp
 
-  def initialize(name, hp = 100)
+  def initialize(name, hit_points = 100)
     @name = name
-    @hp = hp
+    @hp = hit_points
   end
 
   def receive_damage
