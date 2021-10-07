@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sinatra'
 require 'sinatra/reloader'
 require './lib/player'
@@ -7,21 +9,20 @@ class Battle < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
-  
+
   enable :sessions
 
-  
   get '/' do
     erb(:index)
   end
-  
+
   post '/names' do
     player1 = Player.new(params[:player1])
     player2 = Player.new(params[:player2])
     @game = Game.create(player1, player2)
     redirect to('/play')
   end
-  
+
   before do
     @game = Game.instance
   end

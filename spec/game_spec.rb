@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'game'
 
 describe Game do
@@ -5,7 +7,7 @@ describe Game do
   let(:player2) { Player.new('Bar') }
   let(:subject) { Game.new(player1, player2) }
 
-  describe "#initialize" do
+  describe '#initialize' do
     it 'is passed two players' do
       expect(subject.player1).to eq player1
       expect(subject.player2).to eq player2
@@ -15,7 +17,7 @@ describe Game do
       expect(subject.player1_turn?).to eq true
     end
   end
-  
+
   describe '#attack' do
     it 'should decrement player hp by 10 when attacked' do
       subject.attack(player1)
@@ -28,8 +30,8 @@ describe Game do
     end
 
     it 'should switch to player 2 turn' do
-      expect { subject.attack(player1) }.to change { 
-        subject.player1_turn? 
+      expect { subject.attack(player1) }.to change {
+        subject.player1_turn?
       }.from(true).to(false)
     end
   end
@@ -47,10 +49,10 @@ describe Game do
     end
   end
 
-  describe "#winner" do
-    it "should return the correct winner" do
+  describe '#winner' do
+    it 'should return the correct winner' do
       10.times { subject.attack(player1) }
-      expect(subject.winner).to eq(player2)      
+      expect(subject.winner).to eq(player2)
     end
   end
 end
