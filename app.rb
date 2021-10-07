@@ -19,6 +19,7 @@ class Battle < Sinatra::Base
   post '/names' do
     player1 = Player.new(params[:player1])
     player2 = Player.new(params[:player2])
+    computerised_opponent = player2.name == ""
     @game = Game.create(player1, player2)
     redirect to('/play')
   end
